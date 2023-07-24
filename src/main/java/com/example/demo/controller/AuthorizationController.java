@@ -16,12 +16,12 @@ public class AuthorizationController {
     public AuthorizationController(AuthorizationService service){
         this.service = service;
     }
-    @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(User guest) throws InvalidCredentials {
-        return service.getAuthorities(guest.getName(), guest.getPassword());
-    }
 //    @GetMapping("/authorize")
-//    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) throws InvalidCredentials {
-//        return service.getAuthorities(user, password);
+//    public List<Authorities> getAuthorities(User guest) throws InvalidCredentials {
+//        return service.getAuthorities(guest.getName(), guest.getPassword());
 //    }
+    @GetMapping("/authorize")
+    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) throws InvalidCredentials {
+        return service.getAuthorities(user, password);
+    }
 }
