@@ -1,7 +1,7 @@
 FROM openjdk:17-oracle
 
-EXPOSE 8085
+EXPOSE 8085:8085
 
-COPY target/demo-0.0.1-SNAPSHOT.jar AuthorApp.jar
+COPY target/demo-0.0.1-SNAPSHOT.jar myapp.jar
 
-CMD ["java", "-jar", "AuthorApp.jar"]
+ENTRYPOINT ["java","-jar","/myapp.jar"]
